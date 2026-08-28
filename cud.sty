@@ -1,53 +1,528 @@
-% color universal design
-% CUD color set ver 4
-% cf: http://jfly.iam.u-tokyo.ac.jp/colorset/
+% This is a style file for "color universal design".
+% This is based on
+% CUD color set designed by CUDO [1].
+% See also [2].
+% [1] https://cudo.jp
+% [2] http://jfly.iam.u-tokyo.ac.jp/colorset/
+%
+%
+% This style file is written  by NUmata yacehide.
+
+
+% Defined colors:
+% cud-a1 ... cud-a9 : accent colors (to use text).
+% cud-b1 ... cud-b7 : base colors (to use back ground).
+% cud-g1 .. cud-g4 : gray scale colors.
+%
+% cud-b1a ... cud-b7a : 
+%     white!50!cud-b1a = cud-b1 etc.
+%     Some of them are not defied in some color model.
+% 
+%
+% cud-red : accent color (a1)
+% cud-yellow : accent color (a2)
+% cud-green : accent color (a3)
+% cud-blue : accent color (a4)
+% cud-cyan : accent color (a5)
+% cud-pink : accent color (a6)
+% cud-orange : accent color (a7)
+% cud-purple : accent color (a8)
+% cud-brown : accent color (a9)
+%
+% cud-lightpink : base color (b1)
+% cud-cream : base color (b2)
+% cud-lightchartreuse : base color (b3)
+% cud-lightblue : base color (b4)
+% cud-beige : base color (b5)
+% cud-lightgreen : base color (b6)
+% cud-lightpurple : base color (b7)
+%
+% cud-white : gray scale color (g1)
+% cud-lightgray : gray scale color (g2)
+% cud-gray : gray scale color (g3)
+% cud-black : gray scale color (g4)
+
+
+
+% Options:
+% v1 : CUD color set version 1. This is the same as v2.
+% v2 : CUD color set version 2.
+% v3 : CUD color set version 3.
+% v4 : CUD color set version 4. Defualt.
+% cmyk : define colors with cmyk model.  Default. 
+% RGB :  define colors with RGB model.
+
+
 \RequirePackage{xcolor}
 
+\newif\if@nu@cud@cmyk@
+\newif\if@nu@cud@RGB@
+\newif\if@nu@cud@jpma@
 
-\definecolor{cud-a1}{RGB}{255,75,0}
-\definecolor{cud-a2}{RGB}{255,241,0}
-\definecolor{cud-a3}{RGB}{3,175,122}
-\definecolor{cud-a4}{RGB}{0,90,255}
-\definecolor{cud-a5}{RGB}{77,196,255}
-\definecolor{cud-a6}{RGB}{255,128,130}
-\definecolor{cud-a7}{RGB}{246,170,0}
-\definecolor{cud-a8}{RGB}{153,0,153}
-\definecolor{cud-a9}{RGB}{128,64,0}
+\@nu@cud@cmyk@false
+\@nu@cud@RGB@false
+\@nu@cud@jpma@false
 
-\definecolor{cud-b1}{RGB}{255,202,191}
-\definecolor{cud-b2}{RGB}{255,255,128}
-\definecolor{cud-b3}{RGB}{216,242,85}
-\definecolor{cud-b4}{RGB}{191,228,255}
-\definecolor{cud-b5}{RGB}{255,202,128}
-\definecolor{cud-b6}{RGB}{119,217,168}
-\definecolor{cud-b7}{RGB}{201,172,230}
+\newif\if@nu@cud@v@i@
+\newif\if@nu@cud@v@ii@
+\newif\if@nu@cud@v@iii@
+\newif\if@nu@cud@v@iv@
 
-\definecolor{cud-1}{RGB}{255,255,255}
-\definecolor{cud-2}{RGB}{200,200,203}
-\definecolor{cud-3}{RGB}{132,145,158}
-\definecolor{cud-4}{RGB}{0,0,0}
+\@nu@cud@v@iv@false
+\@nu@cud@v@iii@false
+\@nu@cud@v@ii@false
 
 
-\definecolor{cud-red}{RGB}{255,75,0}
-\definecolor{cud-yellow}{RGB}{255,241,0}
-\definecolor{cud-green}{RGB}{3,175,122}
-\definecolor{cud-blue}{RGB}{0,90,255}
-\definecolor{cud-cyan}{RGB}{77,196,255}
-\definecolor{cud-pink}{RGB}{255,128,130}
-\definecolor{cud-orange}{RGB}{246,170,0}
-\definecolor{cud-purple}{RGB}{153,0,153}
-\definecolor{cud-brown}{RGB}{128,64,0}
+\DeclareOption{cmyk}{\@nu@cud@cmyk@true}
+\DeclareOption{RGB}{\@nu@cud@RGB@true}
+\DeclareOption{jpma}{\@nu@cud@jpma@true}
+\DeclareOption{v1}{\@nu@cud@v@ii@true}
+\DeclareOption{v2}{\@nu@cud@v@ii@true}
+\DeclareOption{v3}{\@nu@cud@v@iii@true}
+\DeclareOption{v4}{\@nu@cud@v@iv@true}
+\ProcessOptions\relax
 
-\definecolor{cud-lightpink}{RGB}{255,202,191}
-\definecolor{cud-cream}{RGB}{255,255,128}
-\definecolor{cud-lightchartreuse}{RGB}{216,242,85}
-\definecolor{cud-lightblue}{RGB}{191,228,255}
-\definecolor{cud-beige}{RGB}{255,202,128}
-\definecolor{cud-lightgreen}{RGB}{119,217,168}
-\definecolor{cud-lightpurple}{RGB}{201,172,230}
 
-\definecolor{cud-white}{RGB}{255,255,255}
-\definecolor{cud-lightgray}{RGB}{200,200,203}
-\definecolor{cud-gray}{RGB}{132,145,158}
-\definecolor{cud-black}{RGB}{0,0,0}
+\if@nu@cud@cmyk@
+\@nu@cud@jpma@false
+\@nu@cud@RGB@false
+\else
+\fi
+
+
+
+\if@nu@cud@RGB@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RGB
+% v2
+\definecolor{cud-v2-a1}{RGB}{255,51,0}
+\definecolor{cud-v2-a2}{RGB}{255,255,0}
+\definecolor{cud-v2-a3}{RGB}{51,153,102}
+\definecolor{cud-v2-a4}{RGB}{0,65,255}
+\definecolor{cud-v2-a5}{RGB}{102,204,255}
+\definecolor{cud-v2-a6}{RGB}{255,153,153}
+\definecolor{cud-v2-a7}{RGB}{255,153,0}
+\definecolor{cud-v2-a8}{RGB}{153,0,102}
+\definecolor{cud-v2-a9}{RGB}{102,51,0}
+
+\definecolor{cud-v2-b1}{RGB}{255,211,204}
+\definecolor{cud-v2-b2}{RGB}{255,255,153}
+\definecolor{cud-v2-b3}{RGB}{203,242,102}
+\definecolor{cud-v2-b4}{RGB}{180,235,250}
+\definecolor{cud-v2-b5}{RGB}{235,190,140}
+\definecolor{cud-v2-b6}{RGB}{118,228,166}
+\definecolor{cud-v2-b7}{RGB}{195,180,220}
+
+\definecolor{cud-v2-g1}{RGB}{255,255,255}
+\definecolor{cud-v2-g2}{RGB}{204,204,204}
+\definecolor{cud-v2-g3}{RGB}{114,132,144}
+\definecolor{cud-v2-g4}{RGB}{0,0,0}
+
+% v3
+\definecolor{cud-v3-a1}{RGB}{255,40,0}
+\definecolor{cud-v3-a2}{RGB}{250,245,0}
+\definecolor{cud-v3-a3}{RGB}{53,161,107}
+\definecolor{cud-v3-a4}{RGB}{0,65,255}
+\definecolor{cud-v3-a5}{RGB}{102,204,255}
+\definecolor{cud-v3-a6}{RGB}{255,153,160}
+\definecolor{cud-v3-a7}{RGB}{255,153,0}
+\definecolor{cud-v3-a8}{RGB}{154,0,121}
+\definecolor{cud-v3-a9}{RGB}{102,51,0}
+\definecolor{cud-v3-b1}{RGB}{255,209,209}
+\definecolor{cud-v3-b2}{RGB}{255,255,153}
+\definecolor{cud-v3-b3}{RGB}{203,242,102}
+\definecolor{cud-v3-b4}{RGB}{180,235,250}
+\definecolor{cud-v3-b5}{RGB}{237,197,143}
+\definecolor{cud-v3-b6}{RGB}{135,231,176}
+\definecolor{cud-v3-b7}{RGB}{199,178,222}
+\definecolor{cud-v3-g1}{RGB}{255,255,255}
+\definecolor{cud-v3-g2}{RGB}{200,200,203}
+\definecolor{cud-v3-g3}{RGB}{127,135,143}
+\definecolor{cud-v3-g4}{RGB}{0,0,0}
+
+% v4
+\definecolor{cud-v4-a1}{RGB}{255,75,0}
+\definecolor{cud-v4-a2}{RGB}{255,241,0}
+\definecolor{cud-v4-a3}{RGB}{3,175,122}
+\definecolor{cud-v4-a4}{RGB}{0,90,255}
+\definecolor{cud-v4-a5}{RGB}{77,196,255}
+\definecolor{cud-v4-a6}{RGB}{255,128,130}
+\definecolor{cud-v4-a7}{RGB}{246,170,0}
+\definecolor{cud-v4-a8}{RGB}{153,0,153}
+\definecolor{cud-v4-a9}{RGB}{128,64,0}
+\definecolor{cud-v4-b1}{RGB}{255,202,191}
+\definecolor{cud-v4-b2}{RGB}{255,255,128}
+\definecolor{cud-v4-b3}{RGB}{216,242,85}
+\definecolor{cud-v4-b4}{RGB}{191,228,255}
+\definecolor{cud-v4-b5}{RGB}{255,202,128}
+\definecolor{cud-v4-b6}{RGB}{119,217,168}
+\definecolor{cud-v4-b7}{RGB}{201,172,230}
+\definecolor{cud-v4-g1}{RGB}{255,255,255}
+\definecolor{cud-v4-g2}{RGB}{200,200,203}
+\definecolor{cud-v4-g3}{RGB}{132,145,158}
+\definecolor{cud-v4-g4}{RGB}{0,0,0}
+
+\definecolor{cud-v2-b1a}{RGB}{ 255,167,153 }
+\definecolor{cud-v2-b2a}{RGB}{ 255,255,51 }
+%\definecolor{cud-v2-b3a}{RGB}{ 151,229,-51 }
+\definecolor{cud-v2-b4a}{RGB}{ 105,215,245 }
+\definecolor{cud-v2-b5a}{RGB}{ 215,125,25 }
+%\definecolor{cud-v2-b6a}{RGB}{ -19,201,77 }
+\definecolor{cud-v2-b7a}{RGB}{ 135,105,185 }
+\definecolor{cud-v3-b1a}{RGB}{ 255,163,163 }
+\definecolor{cud-v3-b2a}{RGB}{ 255,255,51 }
+%\definecolor{cud-v3-b3a}{RGB}{ 151,229,-51 }
+\definecolor{cud-v3-b4a}{RGB}{ 105,215,245 }
+\definecolor{cud-v3-b5a}{RGB}{ 219,139,31 }
+\definecolor{cud-v3-b6a}{RGB}{ 15,207,97 }
+\definecolor{cud-v3-b7a}{RGB}{ 143,101,189 }
+\definecolor{cud-v4-b1a}{RGB}{ 255,149,127 }
+\definecolor{cud-v4-b2a}{RGB}{ 255,255,1 }
+%\definecolor{cud-v4-b3a}{RGB}{ 177,229,-85 }
+\definecolor{cud-v4-b4a}{RGB}{ 127,201,255 }
+\definecolor{cud-v4-b5a}{RGB}{ 255,149,1 }
+%\definecolor{cud-v4-b6a}{RGB}{ -17,179,81 }
+\definecolor{cud-v4-b7a}{RGB}{ 147,89,205 }
+
+
+\else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% jmpa
+\if@nu@cud@jpma@
+
+% v2
+
+\colorlet{cud-v2-a1}{F08-50V}
+\colorlet{cud-v2-a2}{F27-85V}
+\colorlet{cud-v2-a3}{F47-60T}
+\colorlet{cud-v2-a4}{E77-40V}
+\colorlet{cud-v2-a5}{F69-70P}
+\colorlet{cud-v2-a6}{E02-70T}
+\colorlet{cud-v2-a7}{E15-65X}
+\colorlet{cud-v2-a8}{E89-40T}
+\colorlet{cud-v2-a9}{E09-30L}
+\colorlet{cud-v2-b1}{F25-90H}
+\colorlet{cud-v2-b2}{E42-70H}
+\colorlet{cud-v2-b3}{E69-80H}
+\colorlet{cud-v2-b4}{E05-80L}
+\colorlet{cud-v2-b5}{E19-75L}
+\colorlet{cud-v2-b6}{E32-80P}
+\colorlet{cud-v2-b7}{F82-70H}
+\colorlet{cud-v2-g1}{EN93}
+\colorlet{cud-v2-g2}{E75-80B}
+\colorlet{cud-v2-g3}{E75-50D}
+\colorlet{cud-v2-g4}{EN-15}
+
+% v3
+
+\colorlet{cud-v3-a1}{F08-50V}
+\colorlet{cud-v3-a2}{F27-85V}
+\colorlet{cud-v3-a3}{F47-60T}
+\colorlet{cud-v3-a4}{F77-40V}
+\colorlet{cud-v3-a5}{F69-70P}
+\colorlet{cud-v3-a6}{F02-70T}
+\colorlet{cud-v3-a7}{F15-65X}
+\colorlet{cud-v3-a8}{F89-40T}
+\colorlet{cud-v3-a9}{F09-30L}
+\colorlet{cud-v3-b1}{F05-80L}
+\colorlet{cud-v3-b2}{F25-90H}
+\colorlet{cud-v3-b3}{F32-80P}
+\colorlet{cud-v3-b4}{F69-80H}
+\colorlet{cud-v3-b5}{F19-75L}
+\colorlet{cud-v3-b6}{F42-70H}
+\colorlet{cud-v3-b7}{F82-70H}
+\colorlet{cud-v3-g1}{EN93}
+\colorlet{cud-v3-g2}{F75-80B}
+\colorlet{cud-v3-g3}{F75-50D}
+\colorlet{cud-v3-g4}{EN-15}
+
+% v4
+
+\colorlet{cud-v4-a1}{J08-50V}
+\colorlet{cud-v4-a2}{J27-85V}
+\colorlet{cud-v4-a3}{J46-60T}
+\colorlet{cud-v4-a4}{J72-40T}
+\colorlet{cud-v4-a5}{J69-70P}
+\colorlet{cud-v4-a6}{J02-70T}
+\colorlet{cud-v4-a7}{J15-65X}
+\colorlet{cud-v4-a8}{J89-40T}
+\colorlet{cud-v4-a9}{J09-30H}
+\colorlet{cud-v4-b1}{J05-80L}
+\colorlet{cud-v4-b2}{J25-90L}
+\colorlet{cud-v4-b3}{J32-80P}
+\colorlet{cud-v4-b4}{K69-80H}
+\colorlet{cud-v4-b5}{J19-75L}
+\colorlet{cud-v4-b6}{J42-70H}
+\colorlet{cud-v4-b7}{J82-70H}
+\colorlet{cud-v4-g1}{JN-93}
+\colorlet{cud-v4-g2}{J75-80B}
+\colorlet{cud-v4-g3}{J75-50C}
+\colorlet{cud-v4-g4}{JN15}
+
+\else
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cmyk
+% v2
+\@nu@cud@cmyk@true
+\definecolor{cud-v2-a1}{cmyk}{0,0.75,0.95,0}
+\definecolor{cud-v2-a2}{cmyk}{0,0,1,0}
+\definecolor{cud-v2-a3}{cmyk}{0.75,0,0.65,0}
+\definecolor{cud-v2-a4}{cmyk}{1,0.45,0,0}
+\definecolor{cud-v2-a5}{cmyk}{0.55,0,0,0}
+\definecolor{cud-v2-a6}{cmyk}{0,0.55,0.35,0}
+\definecolor{cud-v2-a7}{cmyk}{0,0.45,1,0}
+\definecolor{cud-v2-a8}{cmyk}{0.3,0.95,0,0}
+\definecolor{cud-v2-a9}{cmyk}{0.55,0.9,1,0}
+
+\definecolor{cud-v2-b1}{cmyk}{0,0.25,0.15,0}
+\definecolor{cud-v2-b2}{cmyk}{0,0.03,0.4,0}
+\definecolor{cud-v2-b3}{cmyk}{0.25,0,0.8,0}
+\definecolor{cud-v2-b4}{cmyk}{0.3,0,0,0}
+\definecolor{cud-v2-b5}{cmyk}{0,0.25,0.45,0}
+\definecolor{cud-v2-b6}{cmyk}{0.45,0,0.45,0}
+\definecolor{cud-v2-b7}{cmyk}{0.25,0.3,0,0}
+\definecolor{cud-v2-g1}{cmyk}{0,0,0,0}
+\definecolor{cud-v2-g2}{cmyk}{0.15,0.1,0.1,0}
+\definecolor{cud-v2-g3}{cmyk}{0.18,0.1,0,0.55}
+\definecolor{cud-v2-g4}{cmyk}{0.5,0.5,0.5,1}
+
+% v3
+\definecolor{cud-v3-a1}{cmyk}{0,0.75,0.95,0}
+\definecolor{cud-v3-a1-alt}{cmyk}{0,0.75,0.90,0}
+\definecolor{cud-v3-a2}{cmyk}{0,0,1,0}
+\definecolor{cud-v3-a3}{cmyk}{0.75,0,0.65,0}
+\definecolor{cud-v3-a4}{cmyk}{1,0.45,0,0}
+\definecolor{cud-v3-a5}{cmyk}{0.55,0,0,0}
+\definecolor{cud-v3-a6}{cmyk}{0,0.55,0.35,0}
+\definecolor{cud-v3-a7}{cmyk}{0,0.45,1,0}
+\definecolor{cud-v3-a8}{cmyk}{0.3,0.95,0,0}
+\definecolor{cud-v3-a9}{cmyk}{0.55,0.9,1,0}
+\definecolor{cud-v3-b1}{cmyk}{0,0.25,0.15,0}
+\definecolor{cud-v3-b2}{cmyk}{0,0,0.4,0}
+\definecolor{cud-v3-b3}{cmyk}{0.25,0,0.8,0}
+\definecolor{cud-v3-b4}{cmyk}{0.3,0,0,0}
+\definecolor{cud-v3-b5}{cmyk}{0,0.25,0.45,0}
+\definecolor{cud-v3-b6}{cmyk}{0.45,0,0.45,0}
+\definecolor{cud-v3-b7}{cmyk}{0.25,0.3,0,0}
+\definecolor{cud-v3-g1}{cmyk}{0,0,0,0}
+\definecolor{cud-v3-g2}{cmyk}{0.15,0.1,0.1,0}
+\definecolor{cud-v3-g3}{cmyk}{0.18,0.1,0,0.55}
+\definecolor{cud-v3-g4}{cmyk}{0.5,0.5,0.5,1}
+
+% v4
+\definecolor{cud-v4-a1}{cmyk}{0,0.75,0.9,0}
+\definecolor{cud-v4-a2}{cmyk}{0,0,1,0}
+\definecolor{cud-v4-a3}{cmyk}{0.75,0,0.65,0}
+\definecolor{cud-v4-a4}{cmyk}{1,0.45,0,0}
+\definecolor{cud-v4-a5}{cmyk}{0.55,0,0,0}
+\definecolor{cud-v4-a6}{cmyk}{0,0.55,0.35,0}
+\definecolor{cud-v4-a7}{cmyk}{0,0.45,1,0}
+\definecolor{cud-v4-a8}{cmyk}{0.3,0.95,0,0}
+\definecolor{cud-v4-a9}{cmyk}{0.55,0.9,1,0}
+
+\definecolor{cud-v4-b1}{cmyk}{0,0.25,0.15,0}
+\definecolor{cud-v4-b2}{cmyk}{0,0,0.40,0}
+\definecolor{cud-v4-b3}{cmyk}{0.25,0,0.8,0}
+\definecolor{cud-v4-b4}{cmyk}{0.3,0,0,0}
+\definecolor{cud-v4-b5}{cmyk}{0,0.25,0.45,0}
+\definecolor{cud-v4-b6}{cmyk}{0.45,0,0.45,0}
+\definecolor{cud-v4-b7}{cmyk}{0.25,0.3,0,0}
+
+\definecolor{cud-v4-g1}{cmyk}{0,0,0,0}
+\definecolor{cud-v4-g2}{cmyk}{0.15,0.10,0.10,0}
+\definecolor{cud-v4-g3}{cmyk}{0.18,0.1,0,0.55}
+\definecolor{cud-v4-g4}{cmyk}{0.5,0.5,0.5,1}
+
+\definecolor{cud-v2-b1a}{cmyk}{ 0,0.5,0.3,0 }
+\definecolor{cud-v2-b2a}{cmyk}{ 0,0.06,0.8,0 }
+%\definecolor{cud-v2-b3a}{cmyk}{ 0.5,0,1.6,0 }
+\definecolor{cud-v2-b4a}{cmyk}{ 0.6,0,0,0 }
+\definecolor{cud-v2-b5a}{cmyk}{ 0,0.5,0.9,0 }
+\definecolor{cud-v2-b6a}{cmyk}{ 0.9,0,0.9,0 }
+\definecolor{cud-v2-b7a}{cmyk}{ 0.5,0.6,0,0 }
+\definecolor{cud-v3-b1a}{cmyk}{ 0,0.5,0.3,0 }
+\definecolor{cud-v3-b2a}{cmyk}{ 0,0,0.8,0 }
+%\definecolor{cud-v3-b3a}{cmyk}{ 0.5,0,1.6,0 }
+\definecolor{cud-v3-b4a}{cmyk}{ 0.6,0,0,0 }
+\definecolor{cud-v3-b5a}{cmyk}{ 0,0.5,0.9,0 }
+\definecolor{cud-v3-b6a}{cmyk}{ 0.9,0,0.9,0 }
+\definecolor{cud-v3-b7a}{cmyk}{ 0.5,0.6,0,0 }
+\definecolor{cud-v4-b1a}{cmyk}{ 0,0.5,0.3,0 }
+\definecolor{cud-v4-b2a}{cmyk}{ 0,0,0.8,0 }
+%\definecolor{cud-v4-b3a}{cmyk}{ 0.5,0,1.6,0 }
+\definecolor{cud-v4-b4a}{cmyk}{ 0.6,0,0,0 }
+\definecolor{cud-v4-b5a}{cmyk}{ 0,0.5,0.9,0 }
+\definecolor{cud-v4-b6a}{cmyk}{ 0.9,0,0.9,0 }
+\definecolor{cud-v4-b7a}{cmyk}{ 0.5,0.6,0,0 }
+
+\fi
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\if@nu@cud@v@iv@
+\@nu@cud@v@ii@false
+\@nu@cud@v@iii@false
+\else
+\fi
+
+
+\if@nu@cud@v@ii@
+% v2
+\colorlet{cud-a1}{cud-v2-a1}
+\colorlet{cud-a2}{cud-v2-a2}
+\colorlet{cud-a3}{cud-v2-a3}
+\colorlet{cud-a4}{cud-v2-a4}
+\colorlet{cud-a5}{cud-v2-a5}
+\colorlet{cud-a6}{cud-v2-a6}
+\colorlet{cud-a7}{cud-v2-a7}
+\colorlet{cud-a8}{cud-v2-a8}
+\colorlet{cud-a9}{cud-v2-a9}
+
+\colorlet{cud-b1}{cud-v2-b1}
+\colorlet{cud-b2}{cud-v2-b2}
+\colorlet{cud-b3}{cud-v2-b3}
+\colorlet{cud-b4}{cud-v2-b4}
+\colorlet{cud-b5}{cud-v2-b5}
+\colorlet{cud-b6}{cud-v2-b6}
+\colorlet{cud-b7}{cud-v2-b7}
+
+\colorlet{cud-g1}{cud-v2-g1}
+\colorlet{cud-g2}{cud-v2-g2}
+\colorlet{cud-g3}{cud-v2-g3}
+\colorlet{cud-g4}{cud-v2-g4}
+
+\colorlet{cud-b1a}{cud-v2-b1a}
+\colorlet{cud-b2a}{cud-v2-b2a}
+\if@nu@cud@cmyk@
+\else
+\if@nu@cud@RGB@
+\else
+\colorlet{cud-b3a}{cud-v2-b3a}
+\fi
+\fi
+\colorlet{cud-b4a}{cud-v2-b4a}
+\colorlet{cud-b5a}{cud-v2-b5a}
+\if@nu@cud@RGB@
+\else
+\colorlet{cud-b6a}{cud-v2-b6a}
+\fi
+\colorlet{cud-b7a}{cud-v2-b7a}
+
+
+
+\else
+\if@nu@cud@v@iii@
+% v3
+\colorlet{cud-a1}{cud-v3-a1}
+\colorlet{cud-a2}{cud-v3-a2}
+\colorlet{cud-a3}{cud-v3-a3}
+\colorlet{cud-a4}{cud-v3-a4}
+\colorlet{cud-a5}{cud-v3-a5}
+\colorlet{cud-a6}{cud-v3-a6}
+\colorlet{cud-a7}{cud-v3-a7}
+\colorlet{cud-a8}{cud-v3-a8}
+\colorlet{cud-a9}{cud-v3-a9}
+
+\colorlet{cud-b1}{cud-v3-b1}
+\colorlet{cud-b2}{cud-v3-b2}
+\colorlet{cud-b3}{cud-v3-b3}
+\colorlet{cud-b4}{cud-v3-b4}
+\colorlet{cud-b5}{cud-v3-b5}
+\colorlet{cud-b6}{cud-v3-b6}
+\colorlet{cud-b7}{cud-v3-b7}
+
+\colorlet{cud-g1}{cud-v3-g1}
+\colorlet{cud-g2}{cud-v3-g2}
+\colorlet{cud-g3}{cud-v3-g3}
+\colorlet{cud-g4}{cud-v3-g4}
+
+\colorlet{cud-b1a}{cud-v3-b1a}
+\colorlet{cud-b2a}{cud-v3-b2a}
+\if@nu@cud@cmyk@
+\else
+\if@nu@cud@RGB@
+\else
+\colorlet{cud-b3a}{cud-v3-b3a}
+\fi
+\fi
+\colorlet{cud-b4a}{cud-v3-b4a}
+\colorlet{cud-b5a}{cud-v3-b5a}
+\colorlet{cud-b6a}{cud-v3-b6a}
+\colorlet{cud-b7a}{cud-v3-b7a}
+
+\else
+
+% v4
+\colorlet{cud-a1}{cud-v4-a1}
+\colorlet{cud-a2}{cud-v4-a2}
+\colorlet{cud-a3}{cud-v4-a3}
+\colorlet{cud-a4}{cud-v4-a4}
+\colorlet{cud-a5}{cud-v4-a5}
+\colorlet{cud-a6}{cud-v4-a6}
+\colorlet{cud-a7}{cud-v4-a7}
+\colorlet{cud-a8}{cud-v4-a8}
+\colorlet{cud-a9}{cud-v4-a9}
+
+\colorlet{cud-b1}{cud-v4-b1}
+\colorlet{cud-b2}{cud-v4-b2}
+\colorlet{cud-b3}{cud-v4-b3}
+\colorlet{cud-b4}{cud-v4-b4}
+\colorlet{cud-b5}{cud-v4-b5}
+\colorlet{cud-b6}{cud-v4-b6}
+\colorlet{cud-b7}{cud-v4-b7}
+
+\colorlet{cud-g1}{cud-v4-g1}
+\colorlet{cud-g2}{cud-v4-g2}
+\colorlet{cud-g3}{cud-v4-g3}
+\colorlet{cud-g4}{cud-v4-g4}
+
+
+\colorlet{cud-b1a}{cud-v4-b1a}
+\colorlet{cud-b2a}{cud-v4-b2a}
+\if@nu@cud@cmyk@
+\else
+\if@nu@cud@RGB@
+\else
+\colorlet{cud-b3a}{cud-v4-b3a}
+\fi
+\fi
+\colorlet{cud-b4a}{cud-v4-b4a}
+\colorlet{cud-b5a}{cud-v4-b5a}
+\if@nu@cud@RGB@
+\else
+\colorlet{cud-b6a}{cud-v4-b6a}
+\fi
+\colorlet{cud-b7a}{cud-v4-b7a}
+
+\fi
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\colorlet{cud-red}{cud-a1}
+\colorlet{cud-yellow}{cud-a2}
+\colorlet{cud-green}{cud-a3}
+\colorlet{cud-blue}{cud-a4}
+\colorlet{cud-cyan}{cud-a5}
+\colorlet{cud-pink}{cud-a6}
+\colorlet{cud-orange}{cud-a7}
+\colorlet{cud-purple}{cud-a8}
+\colorlet{cud-brown}{cud-a9}
+
+\colorlet{cud-lightpink}{cud-b1}
+\colorlet{cud-cream}{cud-b2}
+\colorlet{cud-lightchartreuse}{cud-b3}
+\colorlet{cud-lightblue}{cud-b4}
+\colorlet{cud-beige}{cud-b5}
+\colorlet{cud-lightgreen}{cud-b6}
+\colorlet{cud-lightpurple}{cud-b7}
+
+\colorlet{cud-white}{cud-g1}
+\colorlet{cud-lightgray}{cud-g2}
+\colorlet{cud-gray}{cud-g3}
+\colorlet{cud-black}{cud-g4}
 
