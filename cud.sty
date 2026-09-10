@@ -26,7 +26,7 @@
 % cud-cyan : accent color (a5)
 % cud-pink : accent color (a6)
 % cud-orange : accent color (a7)
-% cud-purple : accent color (a8)
+% cud-violet : accent color (a8)
 % cud-brown : accent color (a9)
 %
 % cud-lightpink : base color (b1)
@@ -35,7 +35,7 @@
 % cud-lightblue : base color (b4)
 % cud-beige : base color (b5)
 % cud-lightgreen : base color (b6)
-% cud-lightpurple : base color (b7)
+% cud-lightviolet : base color (b7)
 %
 % cud-white : gray scale color (g1)
 % cud-lightgray : gray scale color (g2)
@@ -84,6 +84,8 @@
 \@nu@cud@v@iii@false
 \@nu@cud@v@ii@false
 
+\newif\if@nu@cud@overwrite@
+\@nu@cud@overwrite@false
 
 \DeclareOption{cmyk}{\@nu@cud@cmyk@true}
 \DeclareOption{RGB}{\@nu@cud@RGB@true}
@@ -92,6 +94,7 @@
 \DeclareOption{v2}{\@nu@cud@v@ii@true}
 \DeclareOption{v3}{\@nu@cud@v@iii@true}
 \DeclareOption{v4}{\@nu@cud@v@iv@true}
+\DeclareOption{overwrite}{\@nu@cud@overwrite@true}
 \ProcessOptions\relax
 
 
@@ -640,19 +643,47 @@
 \colorlet{cud-cyan}{cud-a5}
 \colorlet{cud-pink}{cud-a6}
 \colorlet{cud-orange}{cud-a7}
-\colorlet{cud-purple}{cud-a8}
+\colorlet{cud-violet}{cud-a8}
 \colorlet{cud-brown}{cud-a9}
 
 \colorlet{cud-lightpink}{cud-b1}
 \colorlet{cud-cream}{cud-b2}
-\colorlet{cud-lightchartreuse}{cud-b3}
+\colorlet{cud-lightlimegreen}{cud-b3}
 \colorlet{cud-lightblue}{cud-b4}
 \colorlet{cud-beige}{cud-b5}
 \colorlet{cud-lightgreen}{cud-b6}
-\colorlet{cud-lightpurple}{cud-b7}
+\colorlet{cud-lightviolet}{cud-b7}
 
 \colorlet{cud-white}{cud-g1}
 \colorlet{cud-lightgray}{cud-g2}
 \colorlet{cud-gray}{cud-g3}
 \colorlet{cud-black}{cud-g4}
+
+
+
+\if@nu@cud@overwrite@
+\colorlet{red}{cud-red}
+\colorlet{yellow}{cud-yellow}
+\colorlet{green}{cud-green}
+\colorlet{blue}{cud-blue}
+\colorlet{cyan}{cud-cyan}
+\colorlet{pink}{cud-pink}
+\colorlet{orange}{cud-orange}
+\colorlet{violet}{cud-violet}
+\colorlet{brown}{cud-brown}
+
+\colorlet{lightpink}{cud-lightpink}
+\colorlet{cream}{cud-cream}
+\colorlet{lightlimegreen}{cud-lightlimegreen}
+\colorlet{lightblue}{cud-lightblue}
+\colorlet{beige}{cud-beige}
+\colorlet{lightgreen}{cud-lightgreen}
+\colorlet{lightviolet}{cud-lightviolet}
+
+\colorlet{white}{cud-white}
+\colorlet{lightgray}{cud-lightgray}
+\colorlet{gray}{cud-gray}
+\colorlet{black}{cud-black}
+\else
+\fi
 
